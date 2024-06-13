@@ -10,7 +10,7 @@ function TaskList({
   removeTask: Function;
   updateTask: Function;
 }) {
-  console.log(taskList);
+  // console.log(taskList);
   const taskArray =
     (taskList || []).map((task, index) => (
       <Task

@@ -11,21 +11,23 @@ function Main() {
 
   useEffect(() => {
     let prev_tasks = localStorageUtils.getItem(toDay) || [];
-    console.log('Getting tasks', prev_tasks);
+    // console.log('Getting tasks', prev_tasks);
     setTaskList((tasks) => (tasks = [...tasks, ...prev_tasks]));
     updateIcon(prev_tasks.length);
   }, []);
 
   const addTaskWrap = (task: TaskDto) => {
-    console.log(taskList);
+    // console.log(taskList);
     setTaskList((taskInstance) => (taskInstance = [task, ...taskInstance]));
     localStorageUtils.setItem(toDay, [task, ...taskList]);
-    updateIcon(taskList.length);
+    updateIcon(taskList.length + 1);
   };
 
   const updateIcon = (taskCount: Number) => {
-    console.log(JSON.stringify(chrome));
-    console.log(chrome);
+    // console.log(JSON.stringify(chrome));
+    // console.log(chrome);
+    console.log('This is update icon function');
+    chrome.action.setBadgeText({ text: `${taskCount}` });
     chrome.runtime.sendMessage({
       action: 'updateIcon',
       value: taskCount,
@@ -37,7 +39,7 @@ function Main() {
       return `${obj._id}` != `${id}`;
     });
     setTaskList((_tasks) => (_tasks = filteredTasks));
-    console.log('After removed', filteredTasks);
+    // console.log('After removed', filteredTasks);
     localStorageUtils.setItem(toDay, filteredTasks);
   };
 

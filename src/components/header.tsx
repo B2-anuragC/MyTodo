@@ -6,7 +6,7 @@ function HeaderMenu({ addTask }: { addTask: Function }) {
   const taskInput: any = useRef<HTMLLinkElement>(null);
 
   const add = () => {
-    console.log('Add task', taskInput);
+    // console.log('Add task', taskInput);
     if (taskInput.current !== null) {
       taskInput.current.focus();
     }

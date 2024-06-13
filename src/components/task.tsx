@@ -10,7 +10,7 @@ function Task({
   removeTask: Function;
   updateTask: Function;
 }) {
-  console.log(taskDetail);
+  // console.log(taskDetail);
   return (
     <div className="raw">
       <div className="hstack gap-4">
